@@ -1,5 +1,6 @@
-class NewsSite < ApplicationRecord
+class Newssite < ApplicationRecord
     belongs_to :feed
     has_many :chosensites
     has_many :feeds, through: :chosensites
+    has_many :news
 end
