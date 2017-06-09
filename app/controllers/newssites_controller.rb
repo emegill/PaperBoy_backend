@@ -4,7 +4,7 @@ class NewssitesController < ApplicationController
 
 
     def index
-        uri = URI("https://api.nytimes.com/svc/news/v3/content/all/all.json")
+    uri = URI("https://api.nytimes.com/svc/news/v3/content/all/all.json")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     uri.query = URI.encode_www_form({
