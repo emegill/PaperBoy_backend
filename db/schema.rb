@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609203942) do
+ActiveRecord::Schema.define(version: 20170609214756) do
 
   create_table "chosensites", force: :cascade do |t|
-    t.integer "news_sites_id"
     t.integer "feed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "newssites_id"
   end
 
   create_table "feeds", force: :cascade do |t|
