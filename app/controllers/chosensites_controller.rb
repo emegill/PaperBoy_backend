@@ -1,0 +1,2 @@
+class ChosensitesController < ApplicationController
+end
