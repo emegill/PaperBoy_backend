@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609220344) do
+ActiveRecord::Schema.define(version: 20170610131018) do
 
   create_table "chosensites", force: :cascade do |t|
     t.integer "feed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "newssites_id"
+    t.integer "newssite_id"
   end
 
   create_table "feeds", force: :cascade do |t|
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170609220344) do
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "newssites_id"
+    t.integer "newssite_id"
   end
 
   create_table "newssites", force: :cascade do |t|
