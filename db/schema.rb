@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170610131018) do
     t.integer "feed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "newssite_id"   
+    t.integer "newssite_id"
   end
 
   create_table "feeds", force: :cascade do |t|

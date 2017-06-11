@@ -2,14 +2,14 @@ class FeedsController < ApplicationController
     def index
         Feed.create(feed_params)
 
-        feed = Feed.all
-        render json:  feed
+        success = User.find(feed_params).feed
+        render json: success
     end
 
     private
 
     def feed_params
 
-        params.require(:data).permit(:news_id)
+        params.require(:data).permit(:users_id)
     end
 end
