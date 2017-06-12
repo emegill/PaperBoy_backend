@@ -19,7 +19,7 @@ class NewssitesController < ApplicationController
 
   @result["results"].each do |result|
 
-    Article.create(title:result["title"], author:result["byline"], newssite_id:1)
+    Article.create(title:result["title"], author:result["byline"], content:["abstract"], url:["url"], date:["updated_at"], newssite_id:1)
 
   end
 
