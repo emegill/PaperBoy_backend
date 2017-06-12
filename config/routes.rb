@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :feeds
   resources :newssites
   resources :users
+  resources :articles
 
-  get '/scrape', to: 'news#scrape'
+  get '/scrape', to: 'articles#scrape'
 
 end
