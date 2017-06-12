@@ -3,6 +3,6 @@ class FeedsController < ApplicationController
   feed_id = params[:feed_id]
 
   articles = Feed.find(feed_id).newssites
-  render json: articles.articles
+  render json: articles
   end
 end
