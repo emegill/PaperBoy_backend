@@ -15,9 +15,13 @@ class NewssitesController < ApplicationController
   request = Net::HTTP::Get.new(uri.request_uri)
   @result = JSON.parse(http.request(request).body)
   puts @result.inspect
-  render json: @result
+  render json: @result["results"]
 
+  @result["results"].each do |result|
 
+    Article.create(title:result["title"], author:result["byline"], newssite_id:1)
+
+  end
 
     end
 
