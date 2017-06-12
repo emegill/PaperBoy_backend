@@ -1,8 +1,6 @@
-require 'httparty'
-require 'Nokogiri'
-# require 'Open_uri'
 
-class Scraper
+
+class Scraper3
 
 attr_accessor :parse_page
 
@@ -50,6 +48,8 @@ attr_accessor :parse_page
 
         end
 
+        {story: story, author: aurthor, content: content, date: date}
+
     end
 
     private
@@ -60,6 +60,3 @@ attr_accessor :parse_page
 
 
 end
-
-scraper = Scraper.new
-scraper.run_scraper
