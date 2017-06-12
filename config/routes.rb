@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :chosensites
 
   get '/scrape', to: 'articles#scrape'
-
+  get '/nyt', to: 'articles#nyt'
 end
