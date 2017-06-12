@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :articles
 
   get '/scrape', to: 'articles#scrape'
-
+  get '/nyt', to: 'articles#nyt'
 end
