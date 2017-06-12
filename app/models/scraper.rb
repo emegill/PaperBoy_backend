@@ -1,6 +1,4 @@
-require 'httparty'
-require 'Nokogiri'
-# require 'Open_uri'
+
 
 class Scraper
 
@@ -41,7 +39,10 @@ attr_accessor :parse_page
             puts "- - - index: #{index +1} - - - "
             puts "Story: #{story[index]} | aurthor: #{aurthor[index]} | content: #{content[index]} | date: #{date[index]}"
 
+
         end
+
+        {story: story, author: aurthor, content: content, date: date}
 
     end
 
@@ -51,8 +52,3 @@ attr_accessor :parse_page
         parse_page.css(".Homepage-section")
     end
 end
-
-
-
-scraper = Scraper.new
-scraper.run_scraper
