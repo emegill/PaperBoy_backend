@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
   def index
-<<<<<<< HEAD
-
-=======
->>>>>>> 3560765c1145bdd514cac5f3352041e4a477ac93
     logging_in_user = User.where(username: params[:username]).first
     p logging_in_user
 
