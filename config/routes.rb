@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :newssites
   resources :users
 
+  get '/scrape', to: 'news#scrape'
+
 end
