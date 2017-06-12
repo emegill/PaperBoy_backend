@@ -1,4 +1,9 @@
-class NewsController < ApplicationController
+class ArticlesController < ApplicationController
+
+def index
+    render json: Article.all
+end
+
 
 def scrape
     scraper = Scraper.new
