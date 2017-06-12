@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610131018) do
+ActiveRecord::Schema.define(version: 20170612145441) do
 
   create_table "chosensites", force: :cascade do |t|
     t.integer "feed_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170610131018) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "newssite_id"
+    t.string "date"
   end
 
   create_table "newssites", force: :cascade do |t|
