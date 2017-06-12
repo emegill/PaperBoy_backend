@@ -1,7 +1,7 @@
 class ChosensitesController < ApplicationController
 
   def create
-
+      
 
   end
 
