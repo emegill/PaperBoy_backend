@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :chosensites
 
   get '/scrape', to: 'articles#scrape'
+  get '/scrape2', to: 'articles#scrape2'
+  get '/scrape3', to: 'articles#scrape3'
   get '/nyt', to: 'articles#nyt'
 end
