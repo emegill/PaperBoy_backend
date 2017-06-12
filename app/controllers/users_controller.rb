@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def index
 
-
     user_name = user_params.except(:password)
+    user_password = user_params.except(:username)
     logging_in_user = User.where(username: user_name).first
 
-    if loggedUser.password === params[:password]
+    if loggedUser.password === user_password
 
         user_id = loggedUser.id
 
