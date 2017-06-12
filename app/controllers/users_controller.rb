@@ -10,11 +10,9 @@ class UsersController < ApplicationController
       render json: logged_in_state
 
     else
-
-      logged_in_state = false
-      render json: logged_in_state
+        loggedInState = false
+        render json:  loggedInState
     end
-
   end
 
   def create
@@ -23,13 +21,11 @@ class UsersController < ApplicationController
     user_id = User.where(username: user_name).first.id
     Feed.create(user_id: user_id)
 
-  end
+    end
 
+    private
 
-  private
-
-  def user_params
-    params.permit(:data).require(:username, :password)
-
-  end
+    def user_params
+        params.require(:data).permit(:username, :password)
+    end
 end
