@@ -13,12 +13,13 @@ class UsersController < ApplicationController
         loggedInState = false
         render json:  loggedInState
     end
+  end
 
-    end
-
-    def create
-
-        User.create(user_params)
+  def create
+    User.create(user_params)
+    user_name = user_params[:username]
+    user_id = User.where(username: user_name).first.id
+    Feed.create(user_id: user_id)
 
     end
 

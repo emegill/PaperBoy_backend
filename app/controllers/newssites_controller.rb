@@ -1,23 +1,29 @@
 require "net/http"
 require "uri"
+
 class NewssitesController < ApplicationController
 
 
     def index
 
-      if params[:source] === "NYT"
-        uri = URI("https://api.nytimes.com/svc/news/v3/content/all/all.json")
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true
-        uri.query = URI.encode_www_form({
-          "api-key" => "6543e05d957841679d17e163ef952950"
-          })
-        request = Net::HTTP::Get.new(uri.request_uri)
-        @result = JSON.parse(http.request(request).body)
+      uri = URI("https://api.nytimes.com/svc/news/v3/content/all/all.json")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  uri.query = URI.encode_www_form({
+    "api-key" => "f18324e1f4af412a9dae2869f9329a95"
+  })
+  request = Net::HTTP::Get.new(uri.request_uri)
+  @result = JSON.parse(http.request(request).body)
+  puts @result.inspect
+  render json: @result["results"]
 
+  @result["results"].each do |result|
 
-        render json: @result
+    Article.create(title:result["title"], author:result["byline"], content:["abstract"], url:["url"], date:["updated_at"], newssite_id:1)
 
-      end
+  end
+
     end
+
+
 end
