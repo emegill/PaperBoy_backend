@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :newssites
   resources :users
   resources :articles
+  resources :chosensites
 
   get '/scrape', to: 'articles#scrape'
 
