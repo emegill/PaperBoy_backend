@@ -1,7 +1,5 @@
 require "net/http"
 require "uri"
-require 'guardian-content'
-require 'aylien_news_api'
 
 class NewssitesController < ApplicationController
 
