@@ -7,7 +7,7 @@ class FeedsController < ApplicationController
   newssites_json = newssites.as_json
 
 
-  newssites_json.each_with_index do |newssite, index|
+  newssites_json. each_with_index do |newssite, index|
 
     newssite[:articles] =  newssites[index].articles
   end
