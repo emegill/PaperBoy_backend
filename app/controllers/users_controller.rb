@@ -3,9 +3,10 @@ class UsersController < ApplicationController
 
 
     user_name = user_params.except(:password)
+    user_password = user_params.except(:username)
     logging_in_user = User.where(username: user_name).first
 
-    if logging_in_user.password === params[:password]
+    if logging_in_user.password === user_password
       logging_in_users_id = logging_in_user.id
 
       logged_in_state = {views: true, user_id: logging_in_users_id}
