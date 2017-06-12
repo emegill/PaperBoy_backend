@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
-    logging_in_user = User.where(username: params[:name]).first
+
+
+    user_name = user_params.except(:password)
+    logging_in_user = User.where(username: user_name).first
 
     if logging_in_user.password === params[:password]
       logging_in_users_id = logging_in_user.id
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
 
   def create
     User.create(user_params)
-    
+
   end
 
 
