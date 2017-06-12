@@ -2,14 +2,15 @@ class UsersController < ApplicationController
   def index
 
 
-    user_name = user_params.except(:password)
-    user_password = user_params.except(:username)
-    logging_in_user = User.where(username: user_name).first
 
-    if logging_in_user.password === user_password
-      logging_in_users_id = logging_in_user.id
 
-      logged_in_state = {views: true, user_id: logging_in_users_id}
+    logging_in_user = User.where(username: params[:username]).first
+    p logging_in_user
+
+    if logging_in_user.password === params[:password]
+      logging_users = logging_in_user.id
+
+      logged_in_state = {views: true, user_id: logging_users}
       render json: logged_in_state
 
     else
