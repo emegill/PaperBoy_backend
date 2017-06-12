@@ -1,5 +1,5 @@
 class FeedsController < ApplicationController
-    def index
+    def create
         Feed.create(feed_params)
 
         success = User.find(feed_params).feed
