@@ -7,7 +7,7 @@ def scrape
     5.times do |index|
     Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id: 2)
     end
-
+ 
 end
 
 end
