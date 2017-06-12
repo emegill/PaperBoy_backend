@@ -18,7 +18,6 @@ class NewssitesController < ApplicationController
   render json: @result
 
 
-
     end
 
 
