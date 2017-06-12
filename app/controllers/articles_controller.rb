@@ -37,7 +37,7 @@ end
         results = scraper.run_scraper
         # render json: results
         5.times do |index|
-        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:3)
+        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:4)
     end
 
 end
@@ -47,7 +47,7 @@ def scrape3
     results = scraper.run_scraper
     # render json: results
     5.times do |index|
-    Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:3)
+    Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:5)
 end
 
 end
