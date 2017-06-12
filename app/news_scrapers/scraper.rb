@@ -15,7 +15,7 @@ attr_accessor :parse_page
         story = item_container.css(".Promo-title").children.map { |story| story.text }.compact
     end
 
-    def get_aurthor
+    def get_author
         aurthor = item_container.css(".Promo-author").children.map { |aurthor| aurthor.text }.compact
     end
 
@@ -32,14 +32,13 @@ attr_accessor :parse_page
 
 
         story = get_story
-        aurthor = get_aurthor
+        author = get_author
         content = get_content
         date = get_date
 
 
         (0...story.size).each do |index|
-            puts "- - - index: #{index +1} - - - "
-            puts "Story: #{story[index]} | aurthor: #{aurthor[index]} | content: #{content[index]} | date: #{date[index]}"
+             News.create(story[index], author: author[index], content: content[index])
 
         end
 
@@ -54,5 +53,5 @@ attr_accessor :parse_page
 
 end
 
-scraper = Scraper.new
-scraper.run_scraper
+# scraper = Scraper.new
+# scraper.run_scraper
