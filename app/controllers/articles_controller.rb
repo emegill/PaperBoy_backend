@@ -39,20 +39,11 @@ end
 end
 
 
-<<<<<<< HEAD
-    def scrape
-        scraper = Scraper.new
-        results = scraper.run_scraper
-        # render json: results
-        5.times do |index|
-        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:2)
-=======
 def scrape
     scraper = Scraper.new
     results = scraper.run_scraper
     5.times do |index|
     Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:2)
->>>>>>> 4faaf2186ee3c6de8db6ea7c3b696684175a5ca2
     end
 
 end
