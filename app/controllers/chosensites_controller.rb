@@ -9,7 +9,6 @@ class ChosensitesController < ApplicationController
       site = Chosensite.where(chosensite_delete_params).first
 
       site.destroy!
-      render json: "Chosensite"
   end
 
   private

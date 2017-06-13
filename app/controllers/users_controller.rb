@@ -7,17 +7,17 @@ class UsersController < ApplicationController
     if logging_in_user.password === params[:password]
       logging_users = logging_in_user.id
 
-      feed_id = logging_in_user.feed.id
+     feed_id = logging_in_user.feed.id
       logged_in_state = {views: true, user_id: logging_users,feed_id: feed_id}
       render json: logged_in_state
 
-    else
+   else
         loggedInState = false
         render json:  loggedInState
     end
   end
 
-  def create
+ def create
     User.create(user_params)
     user_name = user_params[:username]
     user = User.where(username: user_name).first
@@ -25,14 +25,14 @@ class UsersController < ApplicationController
     Feed.create(user_id: user_id)
     feed_id = user.feed.id
 
-    logged_in_state = {views: true, user_id: user_id,feed_id: feed_id}
+   logged_in_state = {views: true, user_id: user_id,feed_id: feed_id}
     render json: logged_in_state
 
-    end
+   end
 
-    private
+   private
 
-    def user_params
+   def user_params
         params.require(:data).permit(:username, :password)
     end
 end
