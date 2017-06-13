@@ -6,9 +6,10 @@ class ChosensitesController < ApplicationController
   end
 
   def destroy
-      site = Chosensite.where!(newssite_id: chosensite_delete_params).first
+      site = Chosensite.where(chosensite_delete_params).first
 
-      site.delete!
+      site.destroy!
+      render json: "Chosensite"
   end
 
   private
@@ -19,7 +20,7 @@ class ChosensitesController < ApplicationController
   end
 
   def chosensite_delete_params
-      params.require(:chosensite).permit(:newssite_id)
+      params.require(:chosensite).permit(:feed_id,:newssite_id)
 
   end
 
