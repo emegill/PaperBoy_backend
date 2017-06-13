@@ -3,7 +3,7 @@ class UsersController < ApplicationController
    logging_in_user = User.where(username: params[:username]).first
    p logging_in_user
 
-   if logging_in_user.password === params[:password]
+    if logging_in_user.password === params[:password]
       logging_users = logging_in_user.id
 
      feed_id = logging_in_user.feed.id
