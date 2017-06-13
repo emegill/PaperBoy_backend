@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  def index
-    logging_in_user = User.where(username: params[:username]).first
-    p logging_in_user
-
+ def index
+   logging_in_user = User.where(username: params[:username]).first
+   p logging_in_user
 
     if logging_in_user.password === params[:password]
       logging_users = logging_in_user.id

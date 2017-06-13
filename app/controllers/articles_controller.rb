@@ -1,18 +1,17 @@
 class ArticlesController < ApplicationController
 
 def index
+
     scrape
     render json: Article.all
+
+
 end
 
-
-def nyt
-
-api_call = Nyt.new
-api_call.get_articles
-end
 
 def create
+  api_call = Nyt.new
+  api_call.get_articles
   if params[:guardian]
   guardian_params["articles"].first(5).each do |article|
 
@@ -31,7 +30,7 @@ end
 
   if params[:bbc]
   bbc_params["articles"].first(5).each do |article|
-    p "THIS IS BBC ARTICLES"
+
 p article
   Article.create(title:article["title"], author:article["author"], content:article["description"], url:article["url"], date:article["publishedAt"], newssite_id:7)
 
@@ -40,11 +39,20 @@ end
 end
 
 
+<<<<<<< HEAD
+    def scrape
+        scraper = Scraper.new
+        results = scraper.run_scraper
+        # render json: results
+        5.times do |index|
+        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:2)
+=======
 def scrape
     scraper = Scraper.new
     results = scraper.run_scraper
     5.times do |index|
     Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:2)
+>>>>>>> 4faaf2186ee3c6de8db6ea7c3b696684175a5ca2
     end
 
 end
@@ -59,13 +67,13 @@ end
 
 end
 
-def scrape3
-    scraper = Scraper3.new
-    results = scraper.run_scraper
-    # render json: results
-    5.times do |index|
-    Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:5)
-end
+    def scrape3
+        scraper = Scraper3.new
+        results = scraper.run_scraper
+        # render json: results
+        5.times do |index|
+        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:5)
+    end
 
 end
 
