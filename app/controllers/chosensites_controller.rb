@@ -1,7 +1,26 @@
 class ChosensitesController < ApplicationController
     def index
-        Chosensite.where(chosensite_component_will_mount)
+        array_of_sites = Chosensite.where(feed_id: params[:feed_id])
+
+        p array_of_sites
+
+        array_push = [];
+        site = array_of_sites.map do |site|
+            array_push.push(site[:newssite_id])
+        end
+        p array_push
+        new_york_times = array_push.include? 1
+        intercept = array_push.include? 2
+        guardian = array_push.include? 3
+        jacobin = array_push.include? 4
+        billypen = array_push.include? 5
+        aljazeera = array_push.include? 6
+        bbc = array_push.include? 7
+
+        p valueHash = {NewYorkTimes: new_york_times, Intercept: intercept, Guardian: guardian, Jacobin: jacobin, BillyPen: billypen, Aljazeera: aljazeera, Bbc: bbc}
+        render json: valueHash
     end
+
   def create
     Chosensite.create(chosensite_params)
 
@@ -25,9 +44,5 @@ class ChosensitesController < ApplicationController
 
   end
 
-  def chosensite_component_will_mount
-      params.require(:data).permit(:feed_id)
-
-  end
 
 end
