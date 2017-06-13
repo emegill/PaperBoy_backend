@@ -1,18 +1,17 @@
 class ArticlesController < ApplicationController
 
 def index
+
     scrape
     render json: Article.all
+
+
 end
 
-
-def nyt
-
-api_call = Nyt.new
-api_call.get_articles
-end
 
 def create
+  api_call = Nyt.new
+  api_call.get_articles
   if params[:guardian]
   guardian_params["articles"].first(5).each do |article|
 
@@ -31,7 +30,7 @@ end
 
   if params[:bbc]
   bbc_params["articles"].first(5).each do |article|
-    p "THIS IS BBC ARTICLES"
+
 p article
   Article.create(title:article["title"], author:article["author"], content:article["description"], url:article["url"], date:article["publishedAt"], newssite_id:7)
 

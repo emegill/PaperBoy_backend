@@ -12,8 +12,8 @@ request = Net::HTTP::Get.new(uri.request_uri)
 
 
 @result["results"].first(10).each do |result|
-
-  Article.create(title:result["title"], author:result["byline"], content:result["abstract"], url:result["url"], date:result["updated_at"], newssite_id:1)
+p result
+  Article.create(title:result["title"], author:result["byline"], content:result["abstract"], url:result["url"], date:result["published_date"], newssite_id:1)
 
 
   end
