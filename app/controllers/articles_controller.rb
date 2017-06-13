@@ -12,13 +12,30 @@ api_call.get_articles
 end
 
 def create
-  p guardian_params
-guardian_params["articles"].first(5).each do |article|
+  if params[:guardian]
+  guardian_params["articles"].first(5).each do |article|
 
-Article.create(title:article["title"], author:article["author"], content:article["description"], url:article["url"], date:article["publishedAt"], newssite_id:3)
+  Article.create(title:article["title"], author:article["author"], content:article["description"], url:article["url"], date:article["publishedAt"], newssite_id:3)
 
   end
+end
 
+  if params[:al_jazeera]
+  jazeera_params["articles"].first(5).each do |article|
+
+  Article.create(title:article["title"], author:article["author"], content:article["description"], url:article["url"], date:article["publishedAt"], newssite_id:6)
+
+  end
+end
+
+  if params[:bbc]
+  bbc_params["articles"].first(5).each do |article|
+    p "THIS IS BBC ARTICLES"
+p article
+  Article.create(title:article["title"], author:article["author"], content:article["description"], url:article["url"], date:article["publishedAt"], newssite_id:7)
+
+  end
+end
 end
 
 
@@ -59,6 +76,19 @@ def guardian_params
 
 params.require(:guardian).permit!
 
+end
+private
+
+def jazeera_params
+
+params.require(:al_jazeera).permit!
+
+end
+private
+
+def bbc_params
+
+params.require(:bbc).permit!
 
 end
 
