@@ -22,12 +22,12 @@ Article.create(title:article["title"], author:article["author"], content:article
 end
 
 
-def scrape
-    scraper = Scraper.new
-    results = scraper.run_scraper
-    # render json: results
-    5.times do |index|
-    Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:2)
+    def scrape
+        scraper = Scraper.new
+        results = scraper.run_scraper
+        # render json: results
+        5.times do |index|
+        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:2)
     end
 
 end
@@ -42,13 +42,13 @@ end
 
 end
 
-def scrape3
-    scraper = Scraper3.new
-    results = scraper.run_scraper
-    # render json: results
-    5.times do |index|
-    Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:5)
-end
+    def scrape3
+        scraper = Scraper3.new
+        results = scraper.run_scraper
+        # render json: results
+        5.times do |index|
+        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:5)
+    end
 
 end
 
