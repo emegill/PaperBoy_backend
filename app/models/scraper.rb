@@ -27,7 +27,7 @@ attr_accessor :parse_page
     end
 
     def get_url
-        url = ("https://theintercept.com/")
+        url = "https://theintercept.com/"
     end
 
     def run_scraper
@@ -42,7 +42,7 @@ attr_accessor :parse_page
 
         (0...story.size).each do |index|
             puts "- - - index: #{index +1} - - - "
-            puts "Story: #{story[index]} | aurthor: #{aurthor[index]} | content: #{content[index]} | date: #{date[index]} | url: #{url[index]}"
+            puts "Story: #{story[index]} | aurthor: #{aurthor[index]} | content: #{content[index]} | date: #{date[index]} | url: #{url}"
 
 
         end

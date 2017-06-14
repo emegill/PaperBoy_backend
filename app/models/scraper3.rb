@@ -33,6 +33,10 @@ attr_accessor :parse_page
         date.reject {|date| date.length < 3}
     end
 
+    def get_url
+        url = "https://billypenn.com/"
+    end
+
     def run_scraper
 
 
@@ -40,7 +44,7 @@ attr_accessor :parse_page
         aurthor = get_aurthor
         content = get_content
         date = get_date
-        url = "https://billypenn.com/"
+        url = get_url
 
 
         (0...story.size).each do |index|
