@@ -1,12 +1,15 @@
 class ArticlesController < ApplicationController
 
-
-
-
-def create
+def index
   scrape
   scrape2
   scrape3
+
+end
+
+
+def create
+
   api_call = Nyt.new
   api_call.get_articles
   if params[:guardian]
