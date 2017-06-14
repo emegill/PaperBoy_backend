@@ -38,12 +38,12 @@ p article
 end
 end
 
-
+D
 def scrape
     scraper = Scraper.new
     results = scraper.run_scraper
     5.times do |index|
-    Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], date: results[:date][index], newssite_id:2)
+    Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:2)
     end
 
 end
@@ -53,7 +53,7 @@ end
         results = scraper.run_scraper
         # render json: results
         5.times do |index|
-        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], date: results[:date][index], newssite_id:4)
+        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:4)
     end
 
 end
@@ -63,7 +63,7 @@ end
         results = scraper.run_scraper
         # render json: results
         5.times do |index|
-        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], date: results[:date][index], newssite_id:5)
+        Article.create!(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:5)
     end
 
 end
