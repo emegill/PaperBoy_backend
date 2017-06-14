@@ -40,15 +40,16 @@ attr_accessor :parse_page
         aurthor = get_aurthor
         content = get_content
         date = get_date
+        url = "https://www.jacobinmag.com/"
 
 
         (0...story.size).each do |index|
             puts "- - - index: #{index +1} - - - "
-            puts "Story: #{story[index]} | aurthor: #{aurthor[index]} | content: #{content[index]} | date: #{date[index]}"
+            puts "Story: #{story[index]} | aurthor: #{aurthor[index]} | content: #{content[index]} | date: #{date[index]} | url: #{url[index]}"
 
         end
 
-        {story: story, author: aurthor, content: content, date: date}
+        {story: story, author: aurthor, content: content, date: date, url: url}
 
     end
 
