@@ -22,7 +22,7 @@ class ChosensitesController < ApplicationController
     end
 
   def create
-    Chosensite.create(chosensite_params)
+    Chosensite.create!(chosensite_params)
 
   end
 
