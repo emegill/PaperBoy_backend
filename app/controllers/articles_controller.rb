@@ -22,7 +22,6 @@ end
 
   if params[:al_jazeera]
   jazeera_params["articles"].first(5).each do |article|
-    p "THIS IS AN ARTICLE!!!!!!!"
 p article
   Article.create(title:article["title"], author:article["author"], content:article["description"], url:article["url"], date:article["publishedAt"], newssite_id:6)
 
@@ -44,7 +43,9 @@ def scrape
     scraper = Scraper.new
     results = scraper.run_scraper
     5.times do |index|
+
     Article.create(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:2, url:results[:url])
+
     end
 
 end
@@ -54,7 +55,9 @@ end
         results = scraper.run_scraper
         # render json: results
         5.times do |index|
+
         Article.create(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:4, url:results[:url])
+
     end
 
 end
@@ -64,7 +67,9 @@ end
         results = scraper.run_scraper
         # render json: results
         5.times do |index|
+
         Article.create(title: results[:story][index], author: results[:author][index], content: results[:content][index], newssite_id:5, url:results[:url])
+
     end
 
 end

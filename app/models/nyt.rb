@@ -11,7 +11,7 @@ request = Net::HTTP::Get.new(uri.request_uri)
 @result = JSON.parse(http.request(request).body)
 
 
-@result["results"].first(10).each do |result|
+@result["results"].first(5).each do |result|
 p result
   Article.create(title:result["title"], author:result["byline"], content:result["abstract"], url:result["url"], date:result["published_date"], newssite_id:1)
 
